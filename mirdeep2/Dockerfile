@@ -3,7 +3,7 @@ MAINTAINER miasteinberg
 RUN conda install -c bioconda mirdeep2
 #RUN conda install -c bioconda perl
 RUN apt-get install -y apt-utils
-RUN apt-get install -y build-essentials
+RUN apt-get install -y build-essential
 
 # Install the mirdeep2 scripts (mapper.pl, quantifier.pl, etc)
 RUN wget https://www.mdc-berlin.de/43969303/en/research/research_teams/systems_biology_of_gene_regulatory_elements/projects/miRDeep/mirdeep2_0_0_7.zip
