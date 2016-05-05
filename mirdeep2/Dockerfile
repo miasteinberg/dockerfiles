@@ -22,7 +22,7 @@ RUN cd squid-1.9g && ./configure && make
 
 RUN wget http://bioinformatics.psb.ugent.be/supplementary_data/erbon/nov2003/downloads/randfold-2.0.tar.gz
 RUN tar zxvf randfold-2.0.tar.gz
-RUN cd randfold-2.0 && sed -i "s/^INCLUDE=-I.*\/INCLUDE=-I. -I/squid-1.9g -L\/squid-1.9g/" Makefile && make
+RUN cd randfold-2.0 && sed -i "s/^INCLUDE=-I.*/INCLUDE=-I. -I\/squid-1.9g -L\/squid-1.9g/" Makefile && make
 ENV PATH $PATH:/randfold-2.0
 
 # Alter make_html.pl and make_html2.pl with #!/usr/bin/env perl so perl can find PDF::API2
