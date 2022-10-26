@@ -1,4 +1,4 @@
-# Download base image with miniconda
+# Download base image centos latest
 FROM conda/miniconda3-centos7
 
 # original Dockerfile Mantainer
@@ -14,3 +14,14 @@ RUN yum -y install git wget nano vim && yum clean all
 RUN git clone https://github.com/BioinfoUNIBA/REDItools
 
 WORKDIR "/REDItools/"
+
+# create a conda environment for py2 and pysam
+RUN conda init bash
+
+RUN source ~/.bashrc && \
+        conda create -n py2 python=2.7 pysam=0.15 -c bioconda
+
+
+# right now it looks like snakemake requires py3
+RUN source ~/.bashrc && \
+        conda create -n py3 snakemake -c bioconda
